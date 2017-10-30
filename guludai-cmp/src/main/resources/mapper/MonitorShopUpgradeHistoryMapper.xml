@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guludai.admin.mapper.MonitorShopUpgradeHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.guludai.admin.entity.MonitorShopUpgradeHistory" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="erp_id" property="erpId" jdbcType="BIGINT" />
+    <result column="erp_version_id" property="erpVersionId" jdbcType="BIGINT" />
+    <result column="shop_id" property="shopId" jdbcType="BIGINT" />
+    <result column="plug_id" property="plugId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="version_number" property="versionNumber" jdbcType="INTEGER" />
+    <result column="version_status" property="versionStatus" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

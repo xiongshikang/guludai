@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guludai.base.mapper.BaseErpFactoryMapper" >
+  <resultMap id="BaseResultMap" type="com.guludai.base.entity.BaseErpFactory" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="erp_factory_code" property="erpFactoryCode" jdbcType="CHAR" />
+    <result column="erp_factory_name" property="erpFactoryName" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="CHAR" />
+    <result column="mail" property="mail" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="version" property="version" jdbcType="BIGINT" />
+    <result column="data_status" property="dataStatus" jdbcType="CHAR" />
+    <result column="disk_status" property="diskStatus" jdbcType="CHAR" />
+  </resultMap>
+</mapper>

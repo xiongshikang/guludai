@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: guludai-monitor
+
+server:
+    port: 8602 #启动端口
+
+security:
+    user:
+        name: admin
+        password: admin
+        role: USER

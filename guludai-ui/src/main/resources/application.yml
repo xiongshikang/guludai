@@ -1,0 +1,60 @@
+logging:
+    level:
+        tk.mybatis: DEBUG
+        com.guludai.admin: DEBUG
+  #  config: classpath:logback.xml
+    path: /guludai-ui
+    
+server:
+    port: 8806
+    
+spring:
+    application:
+        name: guludai-ui
+    boot:
+        admin:
+             url: http://localhost:8762
+    datasource:
+        name: gld_monitor
+        url: jdbc:mysql://localhost:3306/gld_base?useUnicode=true&characterEncoding=UTF8
+        username: root
+        password: 123456
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        filters: stat
+        maxActive: 20
+        initialSize: 1
+        maxWait: 60000
+        minIdle: 1
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxOpenPreparedStatements: 20
+    redis: 
+        host: 192.168.1.114
+        port: 6379
+        timeout: 3000
+        pool: 
+          max-idle: 8
+          min-idle: 0
+          max-active: 8
+          max-wait: 3000
+    thymeleaf:
+        mode: LEGACYHTML5
+        cache: false            
+
+mybatis:
+    basepackage: com.guludai.ui.mapper
+    xmlLocation: classpath:mapper/**/*.xml
+
+eureka:
+    instance:
+        statusPageUrlPath: ${management.context-path}/info
+        healthCheckUrlPath: ${management.context-path}/health
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guludai.base.mapper.BaseShopMapper" >
+  <resultMap id="BaseResultMap" type="com.guludai.base.entity.BaseShop" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="shop_code" property="shopCode" jdbcType="CHAR" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="shop_longitude" property="shopLongitude" jdbcType="DECIMAL" />
+    <result column="shop_latitude" property="shopLatitude" jdbcType="DECIMAL" />
+    <result column="province_no" property="provinceNo" jdbcType="CHAR" />
+    <result column="city_no" property="cityNo" jdbcType="CHAR" />
+    <result column="town_no" property="townNo" jdbcType="CHAR" />
+    <result column="company_code" property="companyCode" jdbcType="CHAR" />
+    <result column="contacts" property="contacts" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="shop_address" property="shopAddress" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="version" property="version" jdbcType="BIGINT" />
+    <result column="data_status" property="dataStatus" jdbcType="CHAR" />
+    <result column="disk_status" property="diskStatus" jdbcType="CHAR" />
+  </resultMap>
+</mapper>

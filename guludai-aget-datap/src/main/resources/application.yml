@@ -1,0 +1,32 @@
+spring:
+    application:
+        name: guludai-aget-datap
+    thymeleaf:
+        mode: LEGACYHTML5
+        cache: false
+server:
+    port: 8903 #启动端口
+
+zuul:
+  #prefix: /techouse #为zuul设置一个公共的前缀
+  #ignoredServices: '*'
+  routes:
+   guludai-data-platform-consumer: 
+      path: /data/** 
+      serviceId: guludai-data-platform-consumer
+
+ribbon:
+  eureka:
+    enabled: false #配置zuul路由时用将此属性设置为false
+
+guludai-data-platform-consumer:
+  ribbon:
+    listOfServers: 127.0.0.1:8802,127.0.0.1:8803
+
+eureka:
+    instance:
+        statusPageUrlPath: ${management.context-path}/info
+        healthCheckUrlPath: ${management.context-path}/health
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/

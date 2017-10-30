@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guludai.base.mapper.BaseSecurityResourcesMapper" >
+  <resultMap id="BaseResultMap" type="com.guludai.base.entity.BaseSecurityResources" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="resources_code" property="resourcesCode" jdbcType="CHAR" />
+    <result column="security_name" property="securityName" jdbcType="VARCHAR" />
+    <result column="path" property="path" jdbcType="VARCHAR" />
+    <result column="item" property="item" jdbcType="VARCHAR" />
+    <result column="parent_code" property="parentCode" jdbcType="CHAR" />
+    <result column="href" property="href" jdbcType="VARCHAR" />
+    <result column="orders" property="orders" jdbcType="INTEGER" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="version" property="version" jdbcType="BIGINT" />
+    <result column="data_status" property="dataStatus" jdbcType="CHAR" />
+    <result column="disk_status" property="diskStatus" jdbcType="CHAR" />
+  </resultMap>
+  
+	<!-- 通过用户id，查找用户资源 -->
+	<select id="getResourceByUserId" resultMap="BaseResultMap">
+		(SELECT DISTINCT s.* FROM  base_security_resources s INNER JOIN 
+				base_security_resources_roles r ON s.resources_code = r.resources_code
+				INNER JOIN base_security_roles sy ON r.roles_code = sy.roles_code
+				INNER JOIN base_security_user_roles su ON sy.roles_code = su.roles_code
+			 WHERE su.user_code = #{userCode}   
+			 <if test="type!=null and type!=''">
+			 	and s.type= #{type}
+			 </if>
+			)
+			 union 
+			(
+			SELECT s.* FROM base_security_resources s INNER JOIN base_security_user_resources r ON
+					s.resources_code = r.resources_code WHERE r.user_code= #{userCode}	 
+					  <if test="type!=null and type!=''">
+					 	and s.type= #{type}
+					 </if>
+			)
+	</select>
+</mapper>

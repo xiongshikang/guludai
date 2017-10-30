@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guludai.base.mapper.BaseSecurityUserResourcesMapper" >
+  <resultMap id="BaseResultMap" type="com.guludai.base.entity.BaseSecurityUserResources" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_code" property="userCode" jdbcType="CHAR" />
+    <result column="resources_code" property="resourcesCode" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="version" property="version" jdbcType="BIGINT" />
+    <result column="data_status" property="dataStatus" jdbcType="CHAR" />
+    <result column="disk_status" property="diskStatus" jdbcType="CHAR" />
+  </resultMap>
+</mapper>

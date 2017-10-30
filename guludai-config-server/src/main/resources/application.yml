@@ -1,0 +1,15 @@
+spring:
+    application:
+        name: guludai-config-server
+    cloud: 
+        config:
+            server:
+                git:
+                  uri: http://192.168.1.104/root/guludai_xsk
+                  searchPaths: guludai-config-repo
+                  username: xiongshikang
+                  password: 42028477
+
+server:
+    port: 8603
+

@@ -1,0 +1,18 @@
+spring:
+    application:
+        name: guludai-data-platform-producer
+    thymeleaf:
+        mode: LEGACYHTML5
+        cache: false
+    extend:
+           rocketmq:
+               namesrvAddr: 192.168.1.162:9876 #rocketmq命名服务地址（ip+端口） 192.168.1.167:9876;192.168.1.117:9876
+               producer: 
+                  instanceName: guludai-data-platform-Producer-8768 #普通消息生产者实例名称，不能重复（建议使用spring.application.name加-Produce再加1/2/3.。。的方式）
+                  tranInstanceName: guludai-data-platform-TransactionProducer-8768 #事务消息生产者实例名称，不能重复（建议使用spring.application.name加-TransactionProducer再加1/2/3.。。的方式）
+
+server:
+    port: 8802
+    
+
+  

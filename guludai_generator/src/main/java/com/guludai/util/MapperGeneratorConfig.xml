@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 引入配置文件 -->  
+	<properties resource="com/guludai/util/proper.properties" />
+	
+	<context id="Mysql" targetRuntime="MyBatis3Simple"
+		defaultModelType="flat">
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+
+		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+			<property name="mappers" value="${mappers}" />
+			<property name="caseSensitive" value="true" />
+		</plugin>
+
+		<jdbcConnection driverClass="${jdbc_driver}"
+			connectionURL="${jdbc_url}" 
+			userId="${jdbc_user}"
+			password="${jdbc_password}">
+		</jdbcConnection>
+		<javaModelGenerator targetPackage="${package}.entity"
+			targetProject="${projectPath}/src/main/java" />
+
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="${projectPath}/src/main/resources" />
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="${package}.mapper" 
+			targetProject="${projectPath}/src/main/java" />
+			
+	 
+		<table tableName="base_security_user" domainObjectName="BaseSecurityUser" >
+			<generatedKey column="id" sqlStatement="Mysql" />
+		</table>
+		
+		<table tableName="base_security_resources" domainObjectName="BaseSecurityResources" >
+			<generatedKey column="id" sqlStatement="Mysql" />
+		</table>
+		 
+		
+	</context>
+</generatorConfiguration>

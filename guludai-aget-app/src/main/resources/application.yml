@@ -1,0 +1,32 @@
+spring:
+    application:
+        name: guludai-aget-app
+    thymeleaf:
+        mode: LEGACYHTML5
+        cache: false
+server:
+    port: 8901 #启动端口
+
+zuul:
+  #prefix: /techouse #为zuul设置一个公共的前缀
+  #ignoredServices: '*'
+  routes:
+    guludai-app: 
+      path: /app/** 
+      serviceId: guludai-app
+
+ribbon:
+  eureka:
+    enabled: false #配置zuul路由时用将此属性设置为false
+
+guludai-app:
+  ribbon:
+    listOfServers: 127.0.0.1:8701
+
+eureka:
+    instance:
+        statusPageUrlPath: ${management.context-path}/info
+        healthCheckUrlPath: ${management.context-path}/health
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/

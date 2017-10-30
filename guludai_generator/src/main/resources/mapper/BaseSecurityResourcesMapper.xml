@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guludai.ui.mapper.BaseSecurityResourcesMapper">
+  <resultMap id="BaseResultMap" type="com.guludai.ui.entity.BaseSecurityResources">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="resources_code" jdbcType="CHAR" property="resourcesCode" />
+    <result column="security_name" jdbcType="VARCHAR" property="securityName" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="item" jdbcType="VARCHAR" property="item" />
+    <result column="parent_code" jdbcType="CHAR" property="parentCode" />
+    <result column="href" jdbcType="VARCHAR" property="href" />
+    <result column="orders" jdbcType="INTEGER" property="orders" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="version" jdbcType="BIGINT" property="version" />
+    <result column="data_status" jdbcType="CHAR" property="dataStatus" />
+    <result column="disk_status" jdbcType="CHAR" property="diskStatus" />
+  </resultMap>
+</mapper>

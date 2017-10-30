@@ -1,0 +1,62 @@
+spring:
+    application:
+        name: guludai-data-platform-consumer-erp1
+    cloud:
+        config:
+            profile: dev
+            uri:  http://localhost:8603/   
+    datasource:
+       erp1_v1:
+            name: ag_admin
+            url: jdbc:mysql://localhost:3306/ag_admin?useUnicode=true&characterEncoding=UTF8
+            username: root
+            password: 123456
+            type: com.alibaba.druid.pool.DruidDataSource
+            driverClassName: com.mysql.jdbc.Driver
+            filters: stat
+            maxActive: 20
+            initialSize: 1
+            maxWait: 60000
+            minIdle: 1
+            timeBetweenEvictionRunsMillis: 60000
+            minEvictableIdleTimeMillis: 300000
+            validationQuery: select 'x'
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true
+            maxOpenPreparedStatements: 20
+       erp1_v2:
+            name: ag_admin2
+            url: jdbc:mysql://localhost:3306/ag_admin2?useUnicode=true&characterEncoding=UTF8
+            username: root
+            password: 123456
+            type: com.alibaba.druid.pool.DruidDataSource
+            driverClassName: com.mysql.jdbc.Driver
+            filters: stat
+            maxActive: 20
+            initialSize: 1
+            maxWait: 60000
+            minIdle: 1
+            timeBetweenEvictionRunsMillis: 60000
+            minEvictableIdleTimeMillis: 300000
+            validationQuery: select 'x'
+            testWhileIdle: true
+            testOnBorrow: false
+            testOnReturn: false
+            poolPreparedStatements: true
+            maxOpenPreparedStatements: 20
+    extend:
+           rocketmq:
+               namesrvAddr: 192.168.1.162:9876 #rocketmq命名服务地址（ip+端口） 192.168.1.167:9876;192.168.1.117:9876
+               consumer: 
+                  subscribe: erp_topic1:V1||V2||V13 #消费者订阅的主题及tag配置（冒号左边是主题名称，冒号右边是监听的该主题下的消息类型tag的名称，多个tag使用||连接;监听主题下所有消息使用星号"*";监听多个主题使用逗号隔开）
+                  instanceName:  guludai-data-platform-consumer-8704 #消息消费者实例名称，不能重复（建议使用spring.application.name加-Consumer再加1/2/3.。。的方式）
+
+
+server:
+    port: 8704
+
+         
+ 
+

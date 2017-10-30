@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>guludai</groupId>
+	<artifactId>guludai</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<!-- 通用类库 -->
+		<module>guludai-common</module>
+		<!-- 注册中心 -->
+		<module>guludai-center</module>
+		<!-- 监控中心 -->
+		<module>guludai-monitor</module>
+		<!-- confect_manage_platform（配制管理平台简称） -->
+		<module>guludai-cmp</module>
+		<!-- 通用库 -->
+		<module>guludai-base</module>
+		<!-- 通用库api -->
+		<module>guludai-base-api</module>
+		<!-- 大后台ui交互 -->
+		<module>guludai-ui</module>
+		<!-- 配制管理中心网关 -->
+		<module>guludai-aget-cmp</module>
+		<!-- 客户移动端 -->
+		<module>guludai-app</module>
+		<!-- app网关 -->
+		<module>guludai-aget-app</module>
+		<!-- 数据平台网关 -->
+		<module>guludai-aget-datap</module>
+		<!-- rocketmq与springCloud整合包 -->
+		<module>guludai-rocketmq-starter</module>
+		<!-- 数据平台共用实体 -->
+		<module>guludai-data-platform-entity</module>
+		<!-- 数据平台消费者 -->
+		<module>guludai-data-platform-consumer-erp1</module>
+		<!-- 数据平台 生产者-->
+		<module>guludai-data-platform-producer</module>
+		<!-- 配制中文 -->
+		<module>guludai-config-server</module>
+		
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<guludai-center>1.0-SNAPSHOT</guludai-center>
+		<guludai-common>1.0-SNAPSHOT</guludai-common>
+		<guludai-monitor>1.0-SNAPSHOT</guludai-monitor>
+		<guludai-cmp>1.0-SNAPSHOT</guludai-cmp>
+		<guludai-base>1.0-SNAPSHOT</guludai-base>
+		<guludai-base-api>1.0-SNAPSHOT</guludai-base-api>
+		<guludai-ui>1.0-SNAPSHOT</guludai-ui>
+		<guludai-aget-cmp>1.0-SNAPSHOT</guludai-aget-cmp>
+		<guludai-app>1.0-SNAPSHOT</guludai-app>
+		<guludai-aget-app>1.0-SNAPSHOT</guludai-aget-app>
+		<guludai-aget-datap>1.0-SNAPSHOT</guludai-aget-datap>
+		<guludai-rocketmq-starter>1.0-SNAPSHOT</guludai-rocketmq-starter>
+		<guludai-data-platform-entity>1.0-SNAPSHOT</guludai-data-platform-entity>
+		<guludai-data-platform-consumer-erp1>1.0-SNAPSHOT</guludai-data-platform-consumer-erp1>
+		<guludai-data-platform-producer>1.0-SNAPSHOT</guludai-data-platform-producer>
+		<guludai-config-server>1.0-SNAPSHOT</guludai-config-server>
+
+		<!-- 依赖版本 -->
+		<mapper.version>3.3.6</mapper.version>
+		<mybatis.version>3.3.1</mybatis.version>
+		<mybatis.spring.version>1.2.4</mybatis.spring.version>
+		<pagehelper.version>4.1.1</pagehelper.version>
+		<hystrix.version>1.5.12</hystrix.version>
+		<boot.admin.version>1.4.2</boot.admin.version>
+		<rocketmq.version>4.0.0-incubating</rocketmq.version>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.2.RELEASE</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Brixton.SR4</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+	            <groupId>com.alibaba.rocketmq</groupId>
+	            <artifactId>rocketmq-client</artifactId>
+	            <version>3.2.6</version>
+	        </dependency>
+	        	<!-- druid -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>1.0.11</version>
+			</dependency>
+	
+			<!--Mybatis -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>${mybatis.spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.4</version>
+			</dependency>
+				<!--分页插件 -->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>${pagehelper.version}</version>
+			</dependency>
+	
+			<!--通用Mapper -->
+			<dependency>
+				<groupId>tk.mybatis</groupId>
+				<artifactId>mapper</artifactId>
+				<version>${mapper.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- <build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build> -->
+</project>
